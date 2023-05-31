@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <a href="a" class="logo">Chorale Les Cherubins</a> 
+        <div class="navlinks">
+            <ul>
+                <li class="active"><a href="a">Home</a></li>
+                <li><a href="a">About</a> </li>
+                <li><a href="a">Contact</a></li>
+                <li><a href="a">Support</a></li>
+                <li><a href="a">Inscription</a></li>
+            </ul>
+
+    
+        </div>
+       
+        <img src="img/menu-btn.png" alt="Menu" class="menu">
+    </nav>
+    
+    <section>
+    
+
+
+        <h1> GENERATEUR DE PRIERE QUOTIDIENT !</h1>
+        
+         <hr/>
+        
+        <p>
+          veuillez appuyez sur le boutton en bas pour generer les prieres
+        <p>
+        
+        <button>👋 Schecule Praise  </button>
+        
+    </section>
+       
+           
+
+    
+    
+</header>
+    
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    const menu = document.querySelector(".menu")
+    const navLinks = document.querySelector(".navlinks")
+
+    menu.addEventListener('clic',()=>{
+    navLinks.classList.toggle('mobile-menu')
+    })
+
+
+    
+
+const button = document.querySelector("button")
+
+const p = document.querySelector("p")
+
+
+const database = {
+  men: [
+    {
+      firstName: "HEYAFANME",
+      lastName: "Justin",
+      role /**grade*/: "Senior evangelist",
+      /*autre informations*/
+    },
+        {
+      firstName: "AWHANGAN",
+      lastName: "Sam",
+      role /**grade*/: "Senior evangelist",
+      /*autre informations*/
+    },
+    {
+      firstName: "ZITOU",
+      lastName: "Ghislain",
+      role /**grade*/: "Senior Dehotor evangelist",
+      /*autre informations*/
+    },
+    {
+      firstName: "Georges",
+      lastName: "HEYAFANME",
+      role /**grade*/: "Senior evangelist",
+      /*autre informations*/
+    },
+  ],
+  women: [
+        {
+      firstName: "DODO",
+      lastName: "Merveille",
+      role /**grade*/: "Senior Dehotor evangelist",
+      /*autre informations*/
+    },
+        {
+      firstName: "Ariane",
+      lastName: "Tohouegnon",
+      role /**grade*/: "Senior Maman evangelist",
+      /*autre informations*/
+    },
+     {
+      firstName: "Bella",
+      lastName: "ZANNOU",
+      role /**grade*/: "Fidele Maman evangelist",
+      /*autre informations*/
+    },
+    // etc...
+  ],
+ /* praiseTimesInfos: [
+    22H: 'men',
+    1H: 'women',
+  ]*/
+}
+
+const  generatePraiseSchedule = () => {
+  const womenCount = database.women.length
+  
+  const menCount = database.men.length
+  
+  const firstWomam = database.women[Math.floor(Math.random() * womenCount)]
+  
+ const firstMan = database.men[Math.floor(Math.random() * menCount)]
+ 
+ const praiseSchedule = `
+  Bonjours chers Choristes. <br/> <br/> 
+<br/> <br/> 
+
+ Les prières de la semaine sont <br/>
+------------------------------- <br/>
+
+Prière de 13h: ${firstWomam.role}. ${firstWomam.lastName} ${firstWomam.firstName} <br/>
+
+Prière de 22h: ${firstMan.role}. ${firstMan.lastName} ${firstMan.firstName} <br/>
+
+ `
+ 
+ p.innerHTML = praiseSchedule
+  
+
+}
+
+
+button.addEventListener('click', generatePraiseSchedule)
+
+
+
+
+
+</script>
+</html>
